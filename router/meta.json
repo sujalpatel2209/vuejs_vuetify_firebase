@@ -1,0 +1,17 @@
+{
+  "/": {
+    "title": "Home",
+    "description": "My Vuetify.js Project",
+    "keywords": "vue 2.0, vuetify"
+  },
+  "/inspire": {
+    "title": "Inspire",
+    "description": "",
+    "keywords": ""
+  },
+  "/custom": {
+    "title": "Custom",
+    "description": "",
+    "keywords": "custom"
+  }
+}
