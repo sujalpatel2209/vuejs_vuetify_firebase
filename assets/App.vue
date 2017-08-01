@@ -1,80 +1,36 @@
 <template>
   <v-app dark>
-    <v-navigation-drawer
-      persistent
-      :mini-variant="miniVariant"
-      :clipped="clipped"
-      v-model="drawer"
-    >
-      <v-list>
-        <v-list-tile
-          router
-          :to="item.to"
-          :key="i"
-          v-for="(item, i) in items"
-        >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
+    <v-navigation-drawer temporary v-model="drawer">
+      <!-- <v-list class="pa-0">
+         <v-list-item>
+           <v-list-tile>
+             <v-list-tile-content>
+               <v-list-tile-title>Sujal Patel</v-list-tile-title>
+             </v-list-tile-content>
+           </v-list-tile>
+         </v-list-item>
+       </v-list>-->
+      <v-list class="pt-0">
+        <v-divider></v-divider>
+        <v-list-item>
+          <v-list-tile v-for="list in listItem" :key="list.item">
+            <v-list-tile-action>
+              <v-icon>
+                {{ list.icon }}
+              </v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              {{ list.item }}
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed>
+    <v-toolbar dark>
       <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn
-        icon
-        @click.native.stop="miniVariant = !miniVariant"
-      >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.native.stop="clipped = !clipped"
-      >
-        <v-icon>web</v-icon>
-      </v-btn>
-      <v-btn
-        icon
-        @click.native.stop="fixed = !fixed"
-      >
-        <v-icon>remove</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title"></v-toolbar-title>
+      <v-toolbar-title>Toolbar</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        icon
-        @click.native.stop="rightDrawer = !rightDrawer"
-      >
-        <v-icon>menu</v-icon>
-      </v-btn>
     </v-toolbar>
-    <main>
-      <v-container fluid>
-        <v-slide-y-transition mode="out-in">
-          <router-view></router-view>
-        </v-slide-y-transition>
-      </v-container>
-    </main>
-    <v-navigation-drawer
-      temporary
-      :right="right"
-      v-model="rightDrawer"
-    >
-      <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-footer :fixed="fixed">
-      <span>&copy; 2017</span>
-    </v-footer>
   </v-app>
 </template>
 
@@ -83,21 +39,16 @@
 
   export default {
     mixins: [Meta],
-
     data() {
       return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
-        items: [
-          {icon: 'apps', title: 'Welcome', to: '/'},
-          {icon: 'bubble_chart', title: 'Inspire', to: '/inspire'},
-          {icon: 'bubble_chart', title: 'Custom', to: '/custom'}
-        ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Vuetify.js'
+        drawer: false,
+        listItem: [
+          {item: 'View Post', icon: 'format_list_bulleted'},
+          {item: 'New Post', icon: 'note_add'},
+          {item: 'Profile', icon: 'person'},
+          {item: 'Sign Up', icon: 'face'},
+          {item: 'Sign In', icon: 'lock_open'}
+        ]
       }
     }
   }
