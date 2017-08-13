@@ -1,15 +1,6 @@
 <template>
   <v-app dark>
     <v-navigation-drawer temporary v-model="drawer">
-      <!-- <v-list class="pa-0">
-         <v-list-item>
-           <v-list-tile>
-             <v-list-tile-content>
-               <v-list-tile-title>Sujal Patel</v-list-tile-title>
-             </v-list-tile-content>
-           </v-list-tile>
-         </v-list-item>
-       </v-list>-->
       <v-list class="pt-0">
         <v-divider></v-divider>
         <v-list-item>
@@ -27,9 +18,17 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar dark>
-      <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Toolbar</v-toolbar-title>
+      <v-toolbar-side-icon @click.native.stop="drawer = !drawer" class="hidden-sm-and-up"></v-toolbar-side-icon>
+      <v-toolbar-title>Sujal Patel</v-toolbar-title>
       <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-xs-only">
+          <v-btn v-for="toollist in listItem" :key="toollist.item">
+            <v-icon>
+              {{ toollist.icon }}
+            </v-icon>
+            {{ toollist.item }}
+          </v-btn>
+      </v-toolbar-items>
     </v-toolbar>
   </v-app>
 </template>

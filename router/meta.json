@@ -13,5 +13,30 @@
     "title": "Custom",
     "description": "",
     "keywords": "custom"
+  },
+  "/addpost": {
+    "title": "Add Post",
+    "description": "Create New Post",
+    "keywords": "addpost"
+  },
+  "/posts": {
+    "title": "Posts",
+    "description": "Show All Added Posts",
+    "keywords": "posts"
+  },
+  "/signup": {
+    "title": "Signup",
+    "description": "Register New User",
+    "keywords": "signup"
+  },
+  "/signin": {
+    "title": "Signin",
+    "description": "User Signin",
+    "keywords": "signin"
+  },
+  "/profile": {
+    "title": "Profile",
+    "description": "Show My Profile Detail",
+    "keywords": "profile"
   }
 }
