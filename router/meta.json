@@ -38,5 +38,10 @@
     "title": "Profile",
     "description": "Show My Profile Detail",
     "keywords": "profile"
+  },
+  "/posts/:id": {
+    "title": "Post Detail",
+    "description": "Show single post Detail",
+    "keywords": "postdetail"
   }
 }

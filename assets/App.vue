@@ -31,6 +31,7 @@
           <v-btn
             v-for="toollist in listItem"
             :key="toollist.item"
+            router
             :to="toollist.path">
             <v-icon>
               {{ toollist.icon }}

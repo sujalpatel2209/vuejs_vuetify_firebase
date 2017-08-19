@@ -25,6 +25,7 @@ export function createRouter () {
         route('/', 'Home'),
         route('/addpost', 'AddPost'),
         route('/posts','Posts'),
+        route('/posts/:id','PostsDetail'),
         route('/signup','Signup'),
         route('/signin', 'Signin'),
         route('/profile','Profile'),

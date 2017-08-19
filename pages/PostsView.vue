@@ -1,29 +1,35 @@
 <template>
   <v-container>
     <v-layout>
-      <v-flex xs12>
-        <v-card class="blue darken-4 white--text">
-          <v-card-row height="200px">
-            <v-card-title>
-              <h6 class="white--text">Post Title</h6>
-            </v-card-title>
-          </v-card-row>
-          <v-card-row>
-              <p class="white--text" style="padding-left: 15px">2017-06-22</p>
-          </v-card-row>
-          <c-card-row>
-            <p class="contentPadding">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda cupiditate dolor id nisi, provident repellat sunt. Aspernatur blanditiis consectetur dolorum eum fugiat fugit, ipsam itaque magnam nulla quam quas repudiandae rerum veritatis. Consectetur dignissimos ex maxime, neque nisi optio quaerat qui recusandae repellat sed, soluta ullam voluptas! Quia, voluptatem.</p>
-          </c-card-row>
-          <v-card-row actions>
-            <v-btn flat class="white--text">Read More</v-btn>
-          </v-card-row>
+      <v-flex xs12 sm10 md8 offset-sm1 offset-md2>
+        <v-card class="info">
+          <v-container fluid>
+            <v-layout row>
+              <v-flex xs5 sm4 md3>
+                <v-card-media
+                  src="static/slider/slider1.png"
+                  height="150px"
+                >
+                </v-card-media>
+              </v-flex>
+              <v-flex xs7 sm8 md9>
+                <v-card-title>
+                  <div>
+                    <h5 class="white--text">Post Title</h5>
+                    <div>2017-06-22</div>
+                  </div>
+                </v-card-title>
+                <v-card-action>
+                  <v-btn flat>
+                    <v-icon left light class="white--text">arrow_forward</v-icon>
+                    View Post
+                  </v-btn>
+                </v-card-action>
+              </v-flex>
+            </v-layout>
+          </v-container>
         </v-card>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
-<style>
-  .contentPadding{
-    padding: 15px;
-  }
-</style>
