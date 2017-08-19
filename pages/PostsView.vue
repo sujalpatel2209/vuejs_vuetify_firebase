@@ -20,7 +20,7 @@
                   </div>
                 </v-card-title>
                 <v-card-action>
-                  <v-btn flat>
+                  <v-btn flat to="/posts/1">
                     <v-icon left light class="white--text">arrow_forward</v-icon>
                     View Post
                   </v-btn>
