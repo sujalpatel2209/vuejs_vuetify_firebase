@@ -27,6 +27,10 @@ export function createStore () {
 
     mutations: {},
 
-    getters: {}
+    getters: {
+      getPosts(state){
+        return state.posts;
+      }
+    }
   })
 }
