@@ -3,9 +3,10 @@ import App from './App.vue'
 import Vuetify from 'vuetify'
 import Components from 'components/_index'
 
-import { createStore } from 'store/index'
-import { createRouter } from 'router/index'
-import { sync } from 'vuex-router-sync'
+import {createStore} from 'store/index'
+import {createRouter} from 'router/index'
+import {sync} from 'vuex-router-sync'
+import * as firebase from 'firebase'
 
 Vue.use(Vuetify)
 
@@ -15,7 +16,7 @@ Object.keys(Components).forEach(key => {
 
 // Expose a factory function that creates a fresh set of store, router,
 // app instances on each call (which is called for each SSR request)
-export function createApp (ssrContext) {
+export function createApp(ssrContext) {
   // create store and router instances
   const store = createStore()
   const router = createRouter()
@@ -31,11 +32,21 @@ export function createApp (ssrContext) {
     router,
     store,
     ssrContext,
-    render: h => h(App)
+    render: h => h(App),
+    created() {
+      firebase.initializeApp({
+        apiKey: "AIzaSyDuy-zg-uCdgFXmzFkbwuKmjwqnKic8SKo",
+        authDomain: "vuetify-sp2209.firebaseapp.com",
+        databaseURL: "https://vuetify-sp2209.firebaseio.com",
+        projectId: "vuetify-sp2209",
+        storageBucket: "vuetify-sp2209.appspot.com",
+        messagingSenderId: "686921254522"
+      })
+    }
   })
 
   // expose the app, the router and the store.
   // note we are not mounting the app here, since bootstrapping will be
   // different depending on whether we are in a browser or on the server.
-  return { app, router, store }
+  return {app, router, store}
 }
