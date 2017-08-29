@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import Vuetify from 'vuetify'
 import Components from 'components/_index'
+import Vuelidate from 'vuelidate'
+//import DateFormat from 'filters/dateFormate'
 
 import {createStore} from 'store/index'
 import {createRouter} from 'router/index'
@@ -9,6 +11,8 @@ import {sync} from 'vuex-router-sync'
 import * as firebase from 'firebase'
 
 Vue.use(Vuetify)
+Vue.use(Vuelidate)
+// Vue.filter('shortDate', DateFormat)
 
 Object.keys(Components).forEach(key => {
   Vue.component(key, Components[key])
@@ -33,7 +37,7 @@ export function createApp(ssrContext) {
     store,
     ssrContext,
     render: h => h(App),
-    created() {
+   /* created() {
       firebase.initializeApp({
         apiKey: "AIzaSyDuy-zg-uCdgFXmzFkbwuKmjwqnKic8SKo",
         authDomain: "vuetify-sp2209.firebaseapp.com",
@@ -42,7 +46,7 @@ export function createApp(ssrContext) {
         storageBucket: "vuetify-sp2209.appspot.com",
         messagingSenderId: "686921254522"
       })
-    }
+    }*/
   })
 
   // expose the app, the router and the store.

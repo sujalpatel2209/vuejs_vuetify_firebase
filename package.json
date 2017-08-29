@@ -28,6 +28,7 @@
     "vue": "^2.3.4",
     "vue-router": "^2.5.3",
     "vue-server-renderer": "^2.3.4",
+    "vuelidate": "^0.5.0",
     "vuetify": "^0.13.0",
     "vuex": "^2.3.1",
     "vuex-router-sync": "^4.1.2"
