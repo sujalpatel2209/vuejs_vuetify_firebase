@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import * as firebase from 'firebase'
 
 Vue.use(Vuex)
 
-export function createStore () {
+export function createStore() {
   return new Vuex.Store({
     state: {
       posts: [
@@ -21,15 +22,42 @@ export function createStore () {
           content: 'second Post Content',
           imageName: 'slider2.jpg'
         }
-      ]
+      ],
+      user: null
     },
-    actions: {},
+    actions: {
+      userSignUp({commit}, payload) {
+        firebase.auth().createUserWithEmailAndPassword(payload.emailId, payload.password)
+          .then(
+            user => {
+              const newUser = {
+                id: user.uid
+              }
+              commit('setUser',newUser)  // Mutation Call
+              this.$router.push('/signin')
+              //console.log('User Successfully Created')
+            }
+          )
+          .catch(
+            error => {
+              console.log(error)
+            }
+          )
+      }
+    },
 
-    mutations: {},
+    mutations: {
+      setUser(state, payload) {
+        state.user = payload;
+      }
+    },
 
     getters: {
-      getPosts(state){
+      getPosts(state) {
         return state.posts;
+      },
+      newUserDetail(state){
+        return state.user;
       }
     }
   })

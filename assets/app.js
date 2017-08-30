@@ -37,16 +37,22 @@ export function createApp(ssrContext) {
     store,
     ssrContext,
     render: h => h(App),
-   /* created() {
-      firebase.initializeApp({
-        apiKey: "AIzaSyDuy-zg-uCdgFXmzFkbwuKmjwqnKic8SKo",
-        authDomain: "vuetify-sp2209.firebaseapp.com",
-        databaseURL: "https://vuetify-sp2209.firebaseio.com",
-        projectId: "vuetify-sp2209",
-        storageBucket: "vuetify-sp2209.appspot.com",
-        messagingSenderId: "686921254522"
-      })
-    }*/
+    data(){
+      onlyOnce: true
+    },
+    created() {
+      //if(this.onlyOnce){
+        firebase.initializeApp({
+          apiKey: "AIzaSyDuy-zg-uCdgFXmzFkbwuKmjwqnKic8SKo",
+          authDomain: "vuetify-sp2209.firebaseapp.com",
+          databaseURL: "https://vuetify-sp2209.firebaseio.com",
+          projectId: "vuetify-sp2209",
+          storageBucket: "vuetify-sp2209.appspot.com",
+          messagingSenderId: "686921254522"
+        })
+        this.onlyOnce = false;
+      //}
+    }
   })
 
   // expose the app, the router and the store.

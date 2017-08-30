@@ -28,16 +28,16 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
-          <v-btn
-            v-for="toollist in listItem"
-            :key="toollist.item"
-            router
-            :to="toollist.path">
-            <v-icon>
-              {{ toollist.icon }}
-            </v-icon>
-            {{ toollist.item }}
-          </v-btn>
+        <v-btn
+          v-for="toollist in listItem"
+          :key="toollist.item"
+          router
+          :to="toollist.path">
+          <v-icon>
+            {{ toollist.icon }}
+          </v-icon>
+          {{ toollist.item }}
+        </v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <main>
@@ -48,6 +48,7 @@
 
 <script>
   import Meta from 'mixins/meta'
+  import * as firebase from 'firebase'
 
   export default {
     mixins: [Meta],

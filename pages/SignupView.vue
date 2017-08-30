@@ -52,7 +52,6 @@
             </v-container>
           </v-card-text>
         </v-card>
-
       </v-flex>
     </v-layout>
   </v-container>
@@ -69,13 +68,23 @@
       }
     },
     computed: {
-      comparePassword(){
+      comparePassword() {
         return this.userDetail.password !== this.userDetail.comPassword ? "Password are not same." : ""
+      },
+      userDetail() {
+        return this.$store.getters.newUserDetail;
+      }
+    },
+    watch: {
+      userDetail(value){
+        if(value != null && value != undefined){
+          this.$router.push('/signin')
+        }
       }
     },
     methods: {
-      createNewUser() {
-        alert('Create New User');
+      createNewUser() {  // State Action Call
+        this.$store.dispatch('userSignUp', {emailId: this.userDetail.emailId, password: this.userDetail.password})
       }
     }
   }
