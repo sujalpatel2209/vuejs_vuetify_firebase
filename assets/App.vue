@@ -48,7 +48,7 @@
 
 <script>
   import Meta from 'mixins/meta'
-  import * as firebase from 'firebase'
+//  import * as firebase from 'firebase'
 
   export default {
     mixins: [Meta],
@@ -63,7 +63,17 @@
           {item: 'Sign In', icon: 'lock_open', path: '/signin'}
         ]
       }
-    }
+    }/*,
+    created() {
+      firebase.initializeApp({
+        apiKey: "AIzaSyDuy-zg-uCdgFXmzFkbwuKmjwqnKic8SKo",
+        authDomain: "vuetify-sp2209.firebaseapp.com",
+        databaseURL: "https://vuetify-sp2209.firebaseio.com",
+        projectId: "vuetify-sp2209",
+        storageBucket: "vuetify-sp2209.appspot.com",
+        messagingSenderId: "686921254522"
+      })
+    }*/
   }
 </script>
 

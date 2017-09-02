@@ -8,7 +8,7 @@ import Vuelidate from 'vuelidate'
 import {createStore} from 'store/index'
 import {createRouter} from 'router/index'
 import {sync} from 'vuex-router-sync'
-import * as firebase from 'firebase'
+// import * as firebase from 'firebase'
 
 Vue.use(Vuetify)
 Vue.use(Vuelidate)
@@ -37,22 +37,22 @@ export function createApp(ssrContext) {
     store,
     ssrContext,
     render: h => h(App),
-    data(){
+    data() {
       onlyOnce: true
     },
-    created() {
+    /*created() {
       // if(!firebase.initializeApp()){
-        let firebaseApp = firebase.initializeApp({
-          apiKey: "AIzaSyDuy-zg-uCdgFXmzFkbwuKmjwqnKic8SKo",
-          authDomain: "vuetify-sp2209.firebaseapp.com",
-          databaseURL: "https://vuetify-sp2209.firebaseio.com",
-          projectId: "vuetify-sp2209",
-          storageBucket: "vuetify-sp2209.appspot.com",
-          messagingSenderId: "686921254522"
-        })
-        this.onlyOnce = false;
+      let firebaseApp = firebase.initializeApp({
+        apiKey: "AIzaSyDuy-zg-uCdgFXmzFkbwuKmjwqnKic8SKo",
+        authDomain: "vuetify-sp2209.firebaseapp.com",
+        databaseURL: "https://vuetify-sp2209.firebaseio.com",
+        projectId: "vuetify-sp2209",
+        storageBucket: "vuetify-sp2209.appspot.com",
+        messagingSenderId: "686921254522"
+      })
+      this.onlyOnce = false;
       // }
-    }
+    }*/
   })
 
   // expose the app, the router and the store.
