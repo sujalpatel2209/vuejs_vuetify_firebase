@@ -41,8 +41,8 @@ export function createApp(ssrContext) {
       onlyOnce: true
     },
     created() {
-      //if(this.onlyOnce){
-        firebase.initializeApp({
+      // if(!firebase.initializeApp()){
+        let firebaseApp = firebase.initializeApp({
           apiKey: "AIzaSyDuy-zg-uCdgFXmzFkbwuKmjwqnKic8SKo",
           authDomain: "vuetify-sp2209.firebaseapp.com",
           databaseURL: "https://vuetify-sp2209.firebaseio.com",
@@ -51,7 +51,7 @@ export function createApp(ssrContext) {
           messagingSenderId: "686921254522"
         })
         this.onlyOnce = false;
-      //}
+      // }
     }
   })
 
