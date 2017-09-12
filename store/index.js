@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as firebase from 'firebase'
+import axios from 'axios'
 
 Vue.use(Vuex)
+Vue.use(axios)
 
 export function createStore() {
   return new Vuex.Store({
@@ -26,7 +28,7 @@ export function createStore() {
       user: null
     },
     actions: {
-      userSignUp({commit}, payload) {
+      /*userSignUp({commit}, payload) {
         firebase.auth().createUserWithEmailAndPassword(payload.emailId, payload.password)
           .then(
             user => {
@@ -43,6 +45,15 @@ export function createStore() {
               console.log(error)
             }
           )
+      }*/
+      userSignUp({commit}, payload) {
+        axios.post('http://localhost/vuetify/api/signup.php')
+          .then(response => {
+            console.log(response.data)
+          })
+          .catch(e => {
+            console.log(e)
+          })
       }
     },
 
@@ -56,7 +67,7 @@ export function createStore() {
       getPosts(state) {
         return state.posts;
       },
-      newUserDetail(state){
+      newUserDetail(state) {
         return state.user;
       }
     }

@@ -9,9 +9,12 @@ import {createStore} from 'store/index'
 import {createRouter} from 'router/index'
 import {sync} from 'vuex-router-sync'
 // import * as firebase from 'firebase'
+import axios from 'axios'
+
 
 Vue.use(Vuetify)
 Vue.use(Vuelidate)
+Vue.use(axios)
 // Vue.filter('shortDate', DateFormat)
 
 Object.keys(Components).forEach(key => {
